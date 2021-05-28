@@ -41,7 +41,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void updateTask(TaskDto taskDto) {
-        Task task = tasksRepository.findById(taskDto.getId()).orElseThrow();
+        Task task = tasksRepository.findById(taskDto.getId()).orElseThrow(IllegalArgumentException::new);
         task.setFinished(taskDto.getFinished());
         tasksRepository.save(task);
     }

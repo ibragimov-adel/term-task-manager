@@ -31,7 +31,7 @@ public class CommentServiceImpl implements CommentService {
 
         Comment comment = Comment.builder()
                 .message(commentDto.getMessage())
-                .task(tasksRepository.findById(commentDto.getTask()).orElseThrow())
+                .task(tasksRepository.findById(commentDto.getTask()).orElseThrow(IllegalArgumentException::new))
                 .creator(user)
                 .build();
         commentsRepository.save(comment);

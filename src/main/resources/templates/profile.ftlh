@@ -46,7 +46,10 @@
                         <#if user.group??>
                             <h3 class="profile-page__title mb-3">Вы состоите в группе: <span>${user.group.title}</span>
                             </h3>
-                            <h3 class="profile-page__title">Код группы: <span>${user.group.code}</span></h3>
+                            <h3 class="profile-page__title mb-5">Код группы: <span>${user.group.code}</span></h3>
+                            <form action="/group/leave" method="post">
+                                <button type="submit" class="button button_red">Выйти из группы</button>
+                            </form>
                         <#else>
                             <form action="/group/join" method="post">
                                 <div class="row mb-4">

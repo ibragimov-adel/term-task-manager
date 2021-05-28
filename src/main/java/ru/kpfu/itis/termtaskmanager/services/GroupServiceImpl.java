@@ -44,4 +44,11 @@ public class GroupServiceImpl implements GroupService {
         user.setRoleInGroup(User.RoleInGroup.MEMBER);
         usersRepository.save(user);
     }
+
+    @Override
+    public void leaveGroup(String username) {
+        User user = usersRepository.findByUsername(username).get();
+        user.setGroup(null);
+        usersRepository.save(user);
+    }
 }

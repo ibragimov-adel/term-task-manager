@@ -8,4 +8,6 @@ public interface GroupService {
 
     void joinGroup(GroupDto groupDto, String username);
 
+    void leaveGroup(String username);
+
 }

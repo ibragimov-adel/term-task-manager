@@ -25,4 +25,10 @@ public class GroupController {
         groupService.joinGroup(groupDto, user.getUsername());
         return "redirect:/profile";
     }
+
+    @PostMapping(value = "/group/leave")
+    public String leaveGroup(@AuthenticationPrincipal UserDetailsImpl user) {
+        groupService.leaveGroup(user.getUsername());
+        return "redirect:/profile";
+    }
 }
