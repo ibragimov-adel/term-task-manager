@@ -30,7 +30,7 @@ public class TaskServiceImpl implements TaskService {
                 .finished(false)
                 .creator(usersRepository.findByUsername(username).get())
                 .doers(taskDto.getDoers().stream()
-                        .map((t) -> usersRepository.findById(t).orElseThrow())
+                        .map((t) -> usersRepository.findById(t).orElseThrow(IllegalArgumentException::new))
                         .collect(Collectors.toList()))
                 .build();
         tasksRepository.save(task);
